@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Motuuu</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0f1115;
+        color: white;
+        
+        transition: background 2s ease;
+        overflow: hidden;
+        
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.2px;
+
+       
+    }
+     
+    
+
+    .container {
+        text-align: center;
+        max-width: 90%;
+    }
+
+    button {
+        padding: 14px 28px;
+        font-size: 16px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        background: white;
+        color: black;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+@keyframes colorShift {
+    0% { color: #ffffff; }
+    50% { color: #ffb6d9; }
+    100% { color: #ffffff; }
+}
+
+.text {
+    animation: colorShift 6s infinite ease-in-out;
+}
+    .text {
+        font-size: 20px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 1.2s ease;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .soft-glow {
+        text-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div id="message" class="text soft-glow"></div>
+    <button id="btn">Press me naaa</button>
+</div>
+
+<script>
+const messages = [
+   "Oyeee Muqaddas Meri Jaan 🤎",
+    "Baat sunain meri jaan, Ma aap ka dumbu hoon naa...😭🫠",
+    "Dekhain sorry naaa, Ainda aisa nahii kahunga naaa... Pakkkaaaa... I promise. 🤍 ",
+    "Aap ko pata hai naa aap ko ma naraz nahiii dekh sakta naaa iss liye pleaseee..🤌🏼😭",
+    "Maan jayein naaaa meri motuuu.. Aap meri Motuuu hain naa 🎀",
+    "Oyeeeee Ganda Bachaaawaaaww(Mera Ganda Bachaaawaaaww) 🫀",
+    "Aap ko pata hai aap larte howe achiii lagti hain naa ke naraz hote howe..",
+    "Aur waise bhi koi apne idiot se koi naraz hota hai kyaaa... Aap toh meri jaan hain naa..🫀",
+    "Pleaseeeeee naaaaaaaaaaaaaa.",
+    "Maan jayein naaaa meri motuuu.. Meri Pikachuuuuu, Mera Kuchuuupuuu 💗",
+    "Oyeeeeee... Aap meri therspist bhi hain naa... Aur apne therapist se koi naraz hota hai kya?? Aapko pata hai naa aap se baat kr ke ma calm feel kr rha hota hoon 😭🤌🏼",
+    "Aur aap therapist hain naa agar aap hi mujh se naraz hoon gi tu ma kis se baat karunga..🤎🍂",
+    "Aap meri روح جان hain naaa... Aur سکونِ قلب bh hain naaa 😭🫠",
+    "Aap ko pata hai naa aap meri پسندیدہ عورت hain naaa tu pleasee maan jayein naaaa 👉🏻👈🏻",
+    "Oyeeeee Maan jayein naaaaa motuuuu 🎀💗",
+    "Jaaaaaaneman hain naa aap to meri mujhse sabse zyada pasand hain naa.. 🫠🌼",
+    "I Loveeeeee Youuuuuuuuuuuuuuuuuuuuuuuu Motuuu💗",
+    "Oyeeeeee Chasmishhh میں آپ سے پیار کرتا ہوں نا 🫀",
+‎    "🌼🎀أنا أحبكِ مقدس",
+    "Muqadddasssss aap meri hain naa sirf apne dumbuu ki naa 👉🏻👈🏻 ",
+    "I Loveeeeeeeeeee youuuuuuuuuuuuuuuuuuuuuuuu Motuuu💗",
+    "Mera Gandaaaaa Bachaaawaaaww 🤎",
+];
+
+let index = 0;
+
+const btn = document.getElementById("btn");
+const msg = document.getElementById("message");
+
+function updateBackground(i) {
+    const progress = i / messages.length;
+
+    if (progress < 0.3) {
+        document.body.style.background = "#0f1115"; // calm dark
+    } 
+    else if (progress < 0.6) {
+        document.body.style.background = "#1a1a2e"; // deep emotional
+    } 
+    else if (progress < 0.85) {
+        document.body.style.background = "#3b1f2a"; // warm emotional tone
+    } 
+    else {
+        document.body.style.background = "#ff4f9a"; // soft pink finale
+    }
+    document.body.style.background = "linear-gradient(135deg, #ff4f9a, #ffb6d9)";
+}
+
+btn.addEventListener("click", () => {
+
+    msg.classList.remove("show");
+
+    setTimeout(() => {
+        msg.textContent = messages[index];
+        msg.classList.add("show");
+        updateBackground(index);
+        index++;
+
+        if (index === messages.length) {
+            btn.textContent = "…";
+        }
+
+        if (index > messages.length) {
+            btn.style.display = "none";
+        }
+
+    }, 400);
+});
+
+</script>
+
+</body>
+</html>
